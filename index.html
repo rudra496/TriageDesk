@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TriageDesk — AI intake & red-flag triage</title>
+<meta name="description" content="AI-guided patient intake and red-flag triage for busy clinics. Deterministic clinical rules, bilingual EN/বাংলা, printable doctor summary. Informational aid — not a diagnosis."/>
+<link rel="stylesheet" href="css/styles.css"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f766e'/%3E%3Cpath d='M50 22v56M22 50h56' stroke='white' stroke-width='14' stroke-linecap='round'/%3E%3C/svg%3E"/>
+</head>
+<body>
+<header class="app">
+  <div class="brandrow">
+    <div class="brand"><span class="cross">+</span><div><span id="brand">TriageDesk</span><div id="tagline"></div></div></div>
+    <div class="hbtns">
+      <button id="settingsBtn" class="btn ghost sm" style="color:#fff;border-color:rgba(255,255,255,.35)">AI</button>
+      <button id="langBtn" class="btn ghost sm" style="color:#fff;border-color:rgba(255,255,255,.35)"></button>
+    </div>
+  </div>
+</header>
+<div class="disclaimer-bar" id="disclaimerBar"></div>
+
+<main><div id="main"></div></main>
+
+<footer class="app">
+  <span id="footerNote"></span><br/>
+  <span id="selftest"></span>
+</footer>
+
+<div class="modal" id="settingsModal">
+  <div class="box">
+    <h3 id="settingsTitle"></h3>
+    <p id="settingsInfo"></p>
+    <input id="cfgEndpoint" placeholder="https://api.groq.com/openai/v1  (or http://localhost:11434/v1)"/>
+    <input id="cfgKey" type="password" placeholder="API key (leave empty for local Ollama)"/>
+    <input id="cfgModel" placeholder="model id, e.g. llama3.1:8b"/>
+    <div class="actions row-between">
+      <button id="settingsClose" class="btn ghost sm"></button>
+      <button id="settingsSave" class="btn primary sm"></button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.getElementById("settingsTitle").textContent = I18N.en.settings;
+  document.getElementById("settingsInfo").textContent = I18N.en.settings_info;
+  document.getElementById("settingsClose").textContent = I18N.en.close;
+  document.getElementById("settingsSave").textContent = I18N.en.save;
+</script>
+</body>
+</html>
